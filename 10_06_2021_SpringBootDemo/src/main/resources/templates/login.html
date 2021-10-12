@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>login</title>
+
+        <link href="/css/styles.css" rel="stylesheet">
+        <link href="/css/bootstrap.min.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <h1>Название сайта</h1>
+        <h4>Вход</h4>
+
+        <div th:if="${errorMessage}"> Логин или пароль введены неверно</div>
+        <div th:if="${errorCaptcha}"> Неверный код с картинки!</div>
+        <div th:if="${successMessage}"> Успешная регистрация!</div>
+
+        <div>
+            <div>
+                Введите данные:
+            </div>
+
+            <form th:method="post" th:action="@{/login}" th:object="${userLoginForm}">
+
+                <label for="login">Логин
+                    <input type="text" th:field="*{login}" id="login" name="login">
+                </label>
+                <div th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Login error message</div>
+                <br/>
+
+                <label for="password">Пароль
+                    <input type="password" th:field="*{password}" id="password" name="password">
+                </label>
+                <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error message</div>
+
+                <br/>
+
+                <label for="remember-me">
+                    <input type="checkbox" th:field="*{rememberMe}" id="remember-me" name="remember-me">Запомнить меня</label>
+
+                <br/>
+
+                <label>
+                    <img th:src="*{'data:realCaptcha/jpg;base64,'+ realCaptcha}"/>
+                </label>
+
+                <br/>
+
+                <label>Введите код с картинки
+                    <input type="hidden" th:field="*{hiddenCaptcha}" />
+                    <input type="text" th:field="*{captcha}" class="form-control"/>
+                </label>
+
+                <br/>
+
+                <input type="submit" value="Войти">
+            </form>
+        </div>
+
+        <a href="">Забыли пароль</a>
+        <a href="/registration">Регистрация</a>
+    </body>
+</html>

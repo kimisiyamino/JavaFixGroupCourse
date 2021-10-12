@@ -1,0 +1,72 @@
+body, html {
+    background-color: Plum;
+}
+
+h1{
+    font-size: 100px;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0,0,255,1);
+}
+h2{
+    font-size: 70px;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0,0,255,1);
+}
+
+form {
+    padding: 16px;
+    width: 320px;
+    margin: 0 auto;
+}
+
+label {
+    font-size:24px;
+}
+
+form label span.noRequired{
+    font-style: italic;
+    font-size: small;
+}
+
+input {
+    border: 0;
+    outline: 0;
+    font-size: 16px;
+    border-radius: 320px;
+    padding: 16px;
+    background-color: #EBECF0;
+    text-shadow: 1px 1px 0 #FFF;
+
+    margin-right: 8px;
+    box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+#sign {
+    color: #61677C;
+    box-shadow: -5px -5px 20px #FFF, 5px 5px 20px #BABECC;
+    transition: 0.2s;
+    font-weight: 600;
+}
+
+#sign:hover {
+    transform: scale(1.2);
+}
+
+.refLogin, .refReg{
+    text-align: center;
+    font-size: 50px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+b.text{
+    font-size: 25px;
+}
+
+
+

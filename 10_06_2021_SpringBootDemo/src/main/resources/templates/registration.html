@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Регистрация</title>
+    </head>
+    <body>
+        <h1>Название сайта</h1>
+        <h4>Регистрация</h4>
+
+        <form th:method="post" th:action="@{/registration}" th:object="${userRegistrationForm}">
+            <label for="firstName">Имя: </label>
+            <input type="text" th:field="*{firstName}" id="firstName">
+            <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Name error</div>
+            <br/>
+
+            <label for="lastName">Фамилия: </label>
+            <input type="text" th:field="*{lastName}" id="lastName">
+            <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name error</div>
+            <br/>
+
+            <label for="nickName">Ник: </label>
+            <input type="text" th:field="*{nickName}" id="nickName">
+            <div th:if="${#fields.hasErrors('nickName')}" th:errors="*{nickName}">Name error</div>
+            <br/>
+
+            <label for="gender">Пол: </label>
+            <select name="gender" id="gender" th:field="*{gender}">
+                <option disabled value="NONE">Выберите пол</option>
+                <option selected value="MALE">Мужской</option>
+                <option value="FEMALE">Женский</option>
+            </select>
+            <div th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}">Gender error</div>
+
+            <label for="age">Возраст: </label>
+            <input type="text" th:field="*{age}" id="age">
+            <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age error</div>
+            <br/>
+
+            <label for="email">Email: </label>
+            <input type="text" th:field="*{email}" id="email">
+            <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</div>
+            <br/>
+
+            <label for="login">Логин: </label>
+            <input type="text" th:field="*{login}" id="login">
+            <div th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Age error</div>
+            <br/>
+
+            <label for="password">Пароль: </label>
+            <input type="password" th:field="*{password}" id="password">
+            <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Age error</div>
+            <br/>
+
+            <input type="submit" value="Зарегистрироваться">
+        </form>
+
+        <a href="/login">Главная</a>
+    </body>
+</html>

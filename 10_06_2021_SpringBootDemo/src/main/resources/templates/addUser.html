@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New</title>
+</head>
+<body>
+    <form th:method="post" th:action="@{/addUser}" th:object="${user}">
+        <label for="firstName">FirstName: </label>
+        <input type="text" th:field="*{firstName}" id="firstName">
+        <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">Name error</div>
+        <br/>
+
+        <label for="lastName">LastName: </label>
+        <input type="text" th:field="*{lastName}" id="lastName">
+        <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name error</div>
+        <br/>
+
+        <label for="age">Age: </label>
+        <input type="text" th:field="*{age}" id="age">
+        <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age error</div>
+        <br/>
+
+        <label for="email">Email: </label>
+        <input type="text" th:field="*{email}" id="email">
+        <div style="color:crimson" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</div>
+        <br/>
+
+        <label for="login">Login: </label>
+        <input type="text" th:field="*{login}" id="login">
+        <div th:if="${#fields.hasErrors('login')}" th:errors="*{login}">Age error</div>
+        <br/>
+
+        <label for="hashPassword">Password: </label>
+        <input type="password" th:field="*{hashPassword}" id="hashPassword">
+        <div th:if="${#fields.hasErrors('password')}" th:errors="*{hashPassword}">Age error</div>
+        <br/>
+
+        <input type="submit" value="Create">
+    </form>
+</body>
+</html>
